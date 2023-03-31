@@ -9,7 +9,7 @@
         Copyright 2013 Google, Abram Hindle
         
         Licensed under the Apache License, Version 2.0 (the "License");
-        you may not use this file except in compliance with the License.
+        you may not use this file except in compliance with the License. Kezziah Camille Ayuno
         You may obtain a copy of the License at
         
             http://www.apache.org/licenses/LICENSE-2.0
@@ -48,7 +48,7 @@ world = {};
 function drawCircle(context,entity) {
     with(context) {
         beginPath();                
-        lineWidth = 3;
+        lineWidth = 4;
         var x = entity["x"];
         var y = entity["y"];
         //moveTo(x,y);
@@ -61,7 +61,7 @@ function drawCircle(context,entity) {
 
 function prepEntity(entity) {
     if (!entity["colour"]) {
-        entity["colour"] = "#FF0000";
+        entity["colour"] = "#FF0F95";
     }
     if (!entity["radius"]) {
         entity["radius"] = 50;
@@ -231,15 +231,15 @@ mouse = (function() {
 // Add the application specific mouse listeners!
 //XXX: TODO Make these prettier!
 mouse.mousedowners.push(function(x,y,clicked,e) {
-    addEntityWithoutName({'x':x,'y':y,'colour':'blue'});
+    addEntityWithoutName({'x':x,'y':y,'colour':'yellow'});
 });
 
 mouse.mouseuppers.push(function(x,y,clicked,e) {
-    addEntityWithoutName({'x':x,'y':y,'colour':'red'});
+    addEntityWithoutName({'x':x,'y':y,'colour':'white'});
 });
 
 mouse.mousedraggers.push(function(x,y,clicked,e) {
-    addEntityWithoutName({'x':x,'y':y,'colour':'green',
+    addEntityWithoutName({'x':x,'y':y,'colour':'orange',
                           'radius':10});
 });
 
