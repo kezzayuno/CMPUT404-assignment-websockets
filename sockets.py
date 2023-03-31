@@ -157,7 +157,9 @@ def get_entity(entity):
 @app.route("/clear", methods=['POST','GET'])
 def clear():
     '''Clear the world out!'''
+    # Allowed POST because deleting the data and get because returning the world
     myWorld.clear()
+    return myWorld.world()
 
 
 
