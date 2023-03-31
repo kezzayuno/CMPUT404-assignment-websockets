@@ -125,34 +125,7 @@ function addEntity(entity, data) {
     world[entity] = data;
     drawNextFrame(); // (but should we?)
     //XXX: Send a XHTML Request that updates the entity you just modified!
-    // Reference: Reused code from last assignment (Assignment 4): https://github.com/kezzayuno/CMPUT404-assignment-ajax/blob/master/static/index.html
-    const url = 'http://' + host + '/entity/' + entity;
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState==4) {
-            try {
-                if (xhr.status==200) {
-                    if (callback != null) {
-                        response = JSON.parse(xhr.responseText);
-                        world = response;
-                        callback(response);
-                    }
-                }
-            } 
-            catch(e) {
-                alert('Error: ' + e.name);
-            }
-        }
-    };
-    xhr.overrideMimeType('application/json');
-
-    xhr.open('POST', url);
-
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('Accept', 'application/json');
-
-    const stringData = JSON.stringify(data);
-    xhr.send(stringData);
+    socket.send(JSON.stringify({entity: data}))
 }
 var counter = 0;
 function addEntityWithoutName(data) {
